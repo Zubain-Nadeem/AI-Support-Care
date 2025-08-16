@@ -13,7 +13,7 @@ const StatusBar = () => {
 
           {/* AI Status */}
           <div className="flex items-center">
-            <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+            <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
             <span className="text-gray-600">KI aktiv</span>
           </div>
         </div>

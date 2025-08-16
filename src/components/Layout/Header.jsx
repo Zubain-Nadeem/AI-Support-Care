@@ -14,14 +14,6 @@ const Header = ({ onMenuClick }) => {
           </svg>
         </button>
 
-        {/* Logo */}
-        <div className="flex items-center">
-          <div className="bg-green-500 text-white px-3 py-2 rounded-lg mr-3">
-            <span className="text-xl font-bold">c</span>
-          </div>
-          <span className="text-xl font-bold text-green-600">curalink</span>
-        </div>
-
         {/* Search Bar */}
         <div className="flex-1 max-w-md mx-4 lg:mx-8">
           <div className="relative">

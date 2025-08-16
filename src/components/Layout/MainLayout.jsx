@@ -6,7 +6,7 @@ import DailyPlan from '../Content/DailyPlan';
 import MobileDailySchedule from '../Content/MobileDailySchedule';
 
 const MainLayout = ({ children }) => {
-  const [activeView, setActiveView] = useState('main');
+  const [activeView, setActiveView] = useState('residents');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dailyScheduleOpen, setDailyScheduleOpen] = useState(false);
 
@@ -19,7 +19,7 @@ const MainLayout = ({ children }) => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-gray-100">
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
         <div 
@@ -51,7 +51,7 @@ const MainLayout = ({ children }) => {
       </div>
 
       {/* Right Panel - Daily Schedule (hidden on mobile) */}
-      <div className="hidden lg:block w-80 bg-white border-l border-gray-200 p-6">
+      <div className="hidden lg:block w-80 bg-white border-l border-gray-200">
         <DailyPlan />
       </div>
 

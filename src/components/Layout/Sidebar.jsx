@@ -1,14 +1,13 @@
 import React from 'react';
 
-const Sidebar = ({ onNavigate, activeView = 'main' }) => {
+const Sidebar = ({ onNavigate, activeView = 'residents' }) => {
   const navigationItems = [
-    { id: 'main', name: 'Dashboard', icon: '🏠' },
-    { id: 'residents', name: 'Bewohnerakte', icon: '👤' },
-    { id: 'reports', name: 'Berichte', icon: '📊' },
-    { id: 'documents', name: 'Dokumente', icon: '📁' },
-    { id: 'users', name: 'Benutzer', icon: '👥' },
-    { id: 'schedule', name: 'Dienstplan', icon: '📅' },
-    { id: 'appointments', name: 'Termine', icon: '⏰' },
+    { id: 'residents', name: 'Bewohnerakte' },
+    { id: 'reports', name: 'Berichte' },
+    { id: 'evidence', name: 'Nachweise' },
+    { id: 'schedule', name: 'Dienstplan' },
+    { id: 'documents', name: 'Dokumente' },
+    { id: 'appointments', name: 'Termine' },
   ];
 
   const handleItemClick = (itemId) => {
@@ -18,7 +17,7 @@ const Sidebar = ({ onNavigate, activeView = 'main' }) => {
   };
 
   return (
-    <div className="w-64 lg:w-64 bg-green-100 h-screen flex flex-col">
+    <div className="w-64 lg:w-64 bg-white h-screen flex flex-col shadow-sm">
       {/* Mobile Close Button */}
       <div className="lg:hidden flex justify-end p-4">
         <button className="text-green-800 hover:text-green-600">
@@ -28,27 +27,39 @@ const Sidebar = ({ onNavigate, activeView = 'main' }) => {
         </button>
       </div>
 
+      {/* Logo */}
+      <div className="p-4 border-b border-gray-100">
+        <div className="flex items-center">
+          <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mr-3">
+            <span className="text-white font-bold text-lg">c</span>
+          </div>
+          <span className="text-xl font-bold text-green-600">curalink</span>
+        </div>
+      </div>
+
       <div className="flex-1 p-4">
         {navigationItems.map((item) => (
           <div
             key={item.id}
-            className={`flex items-center mb-4 cursor-pointer rounded-lg p-2 transition-colors ${
+            className={`flex items-center mb-3 cursor-pointer rounded-lg p-3 transition-colors ${
               activeView === item.id
-                ? 'bg-green-200 text-green-800'
-                : 'hover:bg-green-200 text-green-800'
+                ? 'bg-green-50 text-green-700'
+                : 'hover:bg-gray-50 text-gray-700'
             }`}
             onClick={() => handleItemClick(item.id)}
           >
-            <div className={`w-3 h-3 rounded-full mr-3 ${
-              activeView === item.id ? 'bg-green-600' : 'bg-green-600'
+            <div className={`w-2 h-2 rounded-full mr-3 ${
+              activeView === item.id ? 'bg-green-500' : 'bg-green-400'
             }`}></div>
-            <span className="font-medium">{item.name}</span>
+            <span className="font-medium text-sm">{item.name}</span>
           </div>
         ))}
       </div>
-      <div className="p-4 border-t border-green-200">
-        <div className="w-full h-1 bg-green-200 rounded-full">
-          <div className="w-1/3 h-1 bg-green-600 rounded-full"></div>
+      
+      {/* Bottom indicator */}
+      <div className="p-4 border-t border-gray-100">
+        <div className="w-full h-1 bg-gray-200 rounded-full">
+          <div className="w-1/4 h-1 bg-green-500 rounded-full"></div>
         </div>
       </div>
     </div>

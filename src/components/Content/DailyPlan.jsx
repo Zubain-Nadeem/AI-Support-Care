@@ -13,15 +13,15 @@ const DailyPlan = () => {
   ];
 
   return (
-    <div className="bg-white p-4 lg:p-6 rounded-lg shadow-sm h-full overflow-y-auto">
-      <h2 className="text-lg lg:text-xl font-bold text-gray-800 mb-4">Tagesplan</h2>
-      <div className="space-y-2">
+    <div className="bg-white h-full overflow-y-auto">
+      <h2 className="text-xl font-bold text-gray-800 mb-4 p-4">Tagesplan</h2>
+      <div className="space-y-1 px-4">
         {residents.map((resident) => (
           <div
             key={resident.id}
             className="flex items-center p-2 hover:bg-gray-50 rounded-lg cursor-pointer transition-colors"
           >
-            <span className="text-gray-600 font-medium text-sm lg:text-base">
+            <span className="text-gray-700 font-medium text-sm">
               {resident.title} {resident.name}
             </span>
           </div>

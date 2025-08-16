@@ -7,7 +7,7 @@ import AIInsights from '../Content/AIInsights';
 import ReportsExport from '../Content/ReportsExport';
 import UserManagement from '../Content/UserManagement';
 
-const Dashboard = ({ activeView = 'main', setActiveView }) => {
+const Dashboard = ({ activeView = 'residents', setActiveView }) => {
   const sampleResident = {
     title: 'Frau',
     name: 'Mustermann',
@@ -30,28 +30,9 @@ const Dashboard = ({ activeView = 'main', setActiveView }) => {
   );
 
   const renderResidentsView = () => (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold text-gray-800">Bewohnerakte</h2>
-        <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-          Neuen Bewohner hinzufügen
-        </button>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <ResidentCard resident={sampleResident} />
-        <ResidentCard resident={{
-          ...sampleResident,
-          name: 'Schwarz',
-          title: 'Fr.',
-          allergies: ['Latex']
-        }} />
-        <ResidentCard resident={{
-          ...sampleResident,
-          name: 'Koch',
-          title: 'Fr.',
-          allergies: []
-        }} />
-      </div>
+    <div className="flex justify-center items-center h-full">
+      {/* Centered Action Buttons */}
+      <ActionButtons />
     </div>
   );
 
@@ -127,6 +108,8 @@ const Dashboard = ({ activeView = 'main', setActiveView }) => {
         return renderScheduleView();
       case 'appointments':
         return renderAppointmentsView();
+      case 'evidence':
+        return renderReportsView(); // Use reports view for evidence
       default:
         return renderMainView();
     }
@@ -134,16 +117,16 @@ const Dashboard = ({ activeView = 'main', setActiveView }) => {
 
   return (
     <div className="h-full">
-      {activeView !== 'main' && (
+      {activeView !== 'residents' && (
         <div className="mb-6">
           <button
-            onClick={() => setActiveView('main')}
+            onClick={() => setActiveView('residents')}
             className="flex items-center space-x-2 text-green-600 hover:text-green-700 font-medium"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
             </svg>
-            <span>Zurück zum Dashboard</span>
+            <span>Zurück zur Bewohnerakte</span>
           </button>
         </div>
       )}
